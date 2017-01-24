@@ -4,7 +4,7 @@
 Socket.io, AngularJS
 ## How to install
 Make sure you have installed NodeJS
-` bower install `
-` npm install `
-` nodemon `
+` bower install `<br>
+` npm install `<br>
+` nodemon `<br>
 Open browser: localhost:8080

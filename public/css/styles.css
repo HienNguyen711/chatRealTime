@@ -45,3 +45,15 @@ body {
     border-bottom: 0;
   }
 }
+
+.username {
+
+    font-weight: 1000;
+    color:cornsilk;
+}
+#loader{
+    display: none;
+}
+.change{
+    background-color:aquamarine;
+}
