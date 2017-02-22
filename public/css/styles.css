@@ -57,3 +57,6 @@ body {
 .change{
     background-color:aquamarine;
 }
+.sendBtn{
+  float:right;
+}

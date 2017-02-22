@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 
 <head>
     <base href="/">
@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="author" content="Hien nguyen">
     <meta name="description" content="Real-time chat app">
+    <meta name="keywords" content="socketio, realtime, chat, angular" />
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
@@ -17,12 +18,20 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
 
-
-
+		<link rel="stylesheet" type="text/css" href="assets/css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="assets/css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="assets/css/component.css" />
+		<!--[if IE]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<script>
+		document.documentElement.className = 'js';
+		</script>
 
 </head>
 
-<body ng-app="app">
+<body ng-app="app" class="demo-2">
+
   <div class="preloader-wrapper big active" id="loader">
     <div class="spinner-layer spinner-blue-only">
       <div class="circle-clipper left">
@@ -47,6 +56,17 @@
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
   </nav>
+   <main>
+
+			<!-- Initial markup -->
+			<div class="segmenter" style="background-image: url(bg.jpg)"></div>
+<h2 class="trigger-headline trigger-headline--hidden"><span></span><span>C</span><span>H</span><span>A</span><span>T</span><span>I</span><span>E</span></h2>
+
+			<div class="bottom-nav">
+				<button class="btn btn--trigger">Get Started</button>
+
+			</div>
+		</main>
     <br>
     <br>
     <div class="container">
@@ -74,12 +94,41 @@
     <script src="join/join.Ctrl.js"></script>
     <script src="main/main.Ctrl.js"></script>
     <script src="components/socket.Srvc.js"></script>
-    <script>
-        $('#loader').load(function(){
-            //handle preloader
-            $('#loader').css('display','block');
-        })
-    </script>
+
+    <script src="assets/js/anime.min.js"></script>
+		<script src="assets/js/imagesloaded.pkgd.min.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script>
+
+		(function() {
+			var headline = document.querySelector('.trigger-headline'),
+				trigger = document.querySelector('.btn--trigger'),
+				segmenter = new Segmenter(document.querySelector('.segmenter'), {
+					pieces: 4,
+					animation: {
+						duration: 1500,
+						easing: 'easeInOutExpo',
+						delay: 100,
+						translateZ: 100
+					},
+					parallax: true,
+					positions: [
+						{top: 0, left: 0, width: 45, height: 45},
+						{top: 55, left: 0, width: 45, height: 45},
+						{top: 0, left: 55, width: 45, height: 45},
+						{top: 55, left: 55, width: 45, height: 45}
+					],
+					onReady: function() {
+						trigger.classList.remove('btn--hidden');
+						trigger.addEventListener('click', function() {
+							segmenter.animate();
+							headline.classList.remove('trigger-headline--hidden');
+							this.classList.add('btn--hidden');
+						});
+					}
+				});
+		})();
+		</script>
 </body>
 
 </html>
